@@ -1,0 +1,27 @@
+[
+  {
+    "x": 8.0,
+    "y": 300.0,
+    "name": "Motion Graphics"
+  },
+  {
+    "x": 185.0,
+    "y": 5.0,
+    "name": "KeyBinds"
+  },
+  {
+    "x": 278.0,
+    "y": 5.0,
+    "name": "Potions"
+  },
+  {
+    "x": 565.0,
+    "y": 13.0,
+    "name": "Staff List"
+  },
+  {
+    "x": 508.0,
+    "y": 416.0,
+    "name": "Target Hud"
+  }
+]

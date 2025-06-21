@@ -1,0 +1,92 @@
+---- Minecraft Crash Report ----
+// You should try our sister game, Minceraft!
+
+Time: 20.06.2025, 18:25
+Description: mouseClicked event handler
+
+java.lang.NullPointerException: Cannot invoke "net.minecraft.client.world.ClientWorld.sendQuittingDisconnectingPacket()" because "net.minecraft.client.Minecraft.world" is null
+	at net.minecraft.client.gui.screen.IngameMenuScreen.lambda$addButtons$12(IngameMenuScreen.java:125)
+	at net.minecraft.client.gui.widget.button.Button.onPress(Button.java:28)
+	at net.minecraft.client.gui.widget.button.AbstractButton.onClick(AbstractButton.java:18)
+	at net.minecraft.client.gui.widget.Widget.mouseClicked(Widget.java:147)
+	at net.minecraft.client.gui.INestedGuiEventHandler.mouseClicked(INestedGuiEventHandler.java:25)
+	at net.minecraft.client.MouseHelper.lambda$mouseButtonCallback$0(MouseHelper.java:101)
+	at net.minecraft.client.gui.screen.Screen.wrapScreenError(Screen.java:522)
+	at net.minecraft.client.MouseHelper.mouseButtonCallback(MouseHelper.java:100)
+	at net.minecraft.client.MouseHelper.lambda$registerCallbacks$4(MouseHelper.java:196)
+	at net.minecraft.util.concurrent.ThreadTaskExecutor.execute(ThreadTaskExecutor.java:111)
+	at net.minecraft.client.MouseHelper.lambda$registerCallbacks$5(MouseHelper.java:195)
+	at org.lwjgl.glfw.GLFWMouseButtonCallbackI.callback(GLFWMouseButtonCallbackI.java:36)
+	at org.lwjgl.system.JNI.invokeV(Native Method)
+	at org.lwjgl.glfw.GLFW.glfwWaitEventsTimeout(GLFW.java:3174)
+	at com.mojang.blaze3d.systems.RenderSystem.limitDisplayFPS(RenderSystem.java:139)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1013)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:579)
+	at net.minecraft.client.main.Main.main(Main.java:186)
+	at Start.main(Start.java:12)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Stacktrace:
+	at net.minecraft.client.gui.screen.IngameMenuScreen.lambda$addButtons$12(IngameMenuScreen.java:125)
+	at net.minecraft.client.gui.widget.button.Button.onPress(Button.java:28)
+	at net.minecraft.client.gui.widget.button.AbstractButton.onClick(AbstractButton.java:18)
+	at net.minecraft.client.gui.widget.Widget.mouseClicked(Widget.java:147)
+	at net.minecraft.client.gui.INestedGuiEventHandler.mouseClicked(INestedGuiEventHandler.java:25)
+	at net.minecraft.client.MouseHelper.lambda$mouseButtonCallback$0(MouseHelper.java:101)
+
+-- Affected screen --
+Details:
+	Screen name: net.minecraft.client.gui.screen.IngameMenuScreen
+Stacktrace:
+	at net.minecraft.client.gui.screen.Screen.wrapScreenError(Screen.java:522)
+	at net.minecraft.client.MouseHelper.mouseButtonCallback(MouseHelper.java:100)
+	at net.minecraft.client.MouseHelper.lambda$registerCallbacks$4(MouseHelper.java:196)
+	at net.minecraft.util.concurrent.ThreadTaskExecutor.execute(ThreadTaskExecutor.java:111)
+	at net.minecraft.client.MouseHelper.lambda$registerCallbacks$5(MouseHelper.java:195)
+	at org.lwjgl.glfw.GLFWMouseButtonCallbackI.callback(GLFWMouseButtonCallbackI.java:36)
+	at org.lwjgl.system.JNI.invokeV(Native Method)
+	at org.lwjgl.glfw.GLFW.glfwWaitEventsTimeout(GLFW.java:3174)
+	at com.mojang.blaze3d.systems.RenderSystem.limitDisplayFPS(RenderSystem.java:139)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1013)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:579)
+	at net.minecraft.client.main.Main.main(Main.java:186)
+	at Start.main(Start.java:12)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.16.5
+	Minecraft Version ID: a93a808fb1154b39bc50d6fc6c0f036e
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 17.0.15, Microsoft
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Microsoft
+	Memory: 353605288 bytes (337 MB) / 1153433600 bytes (1100 MB) up to 4294967296 bytes (4096 MB)
+	CPUs: 12
+	JVM Flags: 1 total; -Xmx4G
+	Launched Version: OptiFine 1.16.5
+	Backend library: LWJGL version 3.2.2 build 10
+	Backend API: NVIDIA GeForce GTX 1650/PCIe/SSE2 GL version 4.6.0 NVIDIA 576.02, NVIDIA Corporation
+	GL Caps: Using framebuffer using OpenGL 3.0
+	Using VBOs: Yes
+	Is Modded: Very likely; Jar signature invalidated
+	Type: Client (map_client.txt)
+	Graphics mode: fancy
+	Resource Packs: vanilla
+	Current Language: English (US)
+	CPU: 12x AMD Ryzen 5 4600H with Radeon Graphics 
+	OptiFine Version: OptiFine_1.16.5_HD_U_G8
+	OptiFine Build: ~~NULL~~
+	Render Distance Chunks: 9
+	Mipmaps: 4
+	Anisotropic Filtering: 1
+	Antialiasing: 0
+	Multitexture: false
+	Shaders: null
+	OpenGlVersion: 4.6.0 NVIDIA 576.02
+	OpenGlRenderer: NVIDIA GeForce GTX 1650/PCIe/SSE2
+	OpenGlVendor: NVIDIA Corporation
+	CpuCount: 12

@@ -1,0 +1,111 @@
+---- Minecraft Crash Report ----
+// I let you down. Sorry :(
+
+Time: 20.06.2025, 18:50
+Description: Rendering entity in world
+
+java.lang.IllegalArgumentException: bound must be positive
+	at java.base/java.util.Random.nextInt(Random.java:322)
+	at net.minecraft.client.renderer.model.ModelRenderer.getRandomCube(ModelRenderer.java:310)
+	at net.minecraft.client.renderer.entity.layers.StuckInBodyLayer.render(StuckInBodyLayer.java:35)
+	at net.minecraft.client.renderer.entity.layers.StuckInBodyLayer.render(StuckInBodyLayer.java:13)
+	at net.minecraft.client.renderer.entity.LivingRenderer.render(LivingRenderer.java:334)
+	at net.minecraft.client.renderer.entity.PlayerRenderer.render(PlayerRenderer.java:79)
+	at net.minecraft.client.renderer.entity.PlayerRenderer.render(PlayerRenderer.java:41)
+	at net.minecraft.client.renderer.entity.EntityRendererManager.renderEntityStatic(EntityRendererManager.java:292)
+	at net.minecraft.client.renderer.WorldRenderer.renderEntity(WorldRenderer.java:2039)
+	at net.minecraft.client.renderer.WorldRenderer.updateCameraAndRender(WorldRenderer.java:1636)
+	at net.minecraft.client.renderer.GameRenderer.renderWorld(GameRenderer.java:969)
+	at net.minecraft.client.renderer.GameRenderer.updateCameraAndRender(GameRenderer.java:675)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:987)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:579)
+	at net.minecraft.client.main.Main.main(Main.java:186)
+	at Start.main(Start.java:12)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Stacktrace:
+	at java.base/java.util.Random.nextInt(Random.java:322)
+	at net.minecraft.client.renderer.model.ModelRenderer.getRandomCube(ModelRenderer.java:310)
+	at net.minecraft.client.renderer.entity.layers.StuckInBodyLayer.render(StuckInBodyLayer.java:35)
+	at net.minecraft.client.renderer.entity.layers.StuckInBodyLayer.render(StuckInBodyLayer.java:13)
+	at net.minecraft.client.renderer.entity.LivingRenderer.render(LivingRenderer.java:334)
+	at net.minecraft.client.renderer.entity.PlayerRenderer.render(PlayerRenderer.java:79)
+	at net.minecraft.client.renderer.entity.PlayerRenderer.render(PlayerRenderer.java:41)
+
+-- Entity being rendered --
+Details:
+	Entity Type: minecraft:player (net.minecraft.client.entity.player.RemoteClientPlayerEntity)
+	Entity ID: 6429779
+	Entity Name: big_bogdan
+	Entity's Exact location: -219.52, 92.42, -28.44
+	Entity's Block location: World: (-220,92,-29), Chunk: (at 4,5,3 in -14,-2; contains blocks -224,0,-32 to -209,255,-17), Region: (-1,-1; contains chunks -32,-32 to -1,-1, blocks -512,0,-512 to -1,255,-1)
+	Entity's Momentum: 0.00, 0.00, 0.00
+	Entity's Passengers: []
+	Entity's Vehicle: ~~ERROR~~ NullPointerException: Cannot invoke "net.minecraft.entity.Entity.toString()" because the return value of "net.minecraft.entity.Entity.getRidingEntity()" is null
+
+-- Renderer details --
+Details:
+	Assigned renderer: net.minecraft.client.renderer.entity.PlayerRenderer@7707d4d2
+	Location: -4.87,-27.40,-37.82 - World: (-5,-28,-38), Chunk: (at 11,-2,10 in -1,-3; contains blocks -16,0,-48 to -1,255,-33), Region: (-1,-1; contains chunks -32,-32 to -1,-1, blocks -512,0,-512 to -1,255,-1)
+	Rotation: -49.21875
+	Delta: 0.44511843
+Stacktrace:
+	at net.minecraft.client.renderer.entity.EntityRendererManager.renderEntityStatic(EntityRendererManager.java:292)
+	at net.minecraft.client.renderer.WorldRenderer.renderEntity(WorldRenderer.java:2039)
+	at net.minecraft.client.renderer.WorldRenderer.updateCameraAndRender(WorldRenderer.java:1636)
+	at net.minecraft.client.renderer.GameRenderer.renderWorld(GameRenderer.java:969)
+
+-- Affected level --
+Details:
+	All players: 18 total; [ClientPlayerEntity['Astro_GO50JGLuQq'/6377778, l='ClientLevel', x=-214.71, y=118.25, z=9.24], RemoteClientPlayerEntity['220'/18, l='ClientLevel', x=-238.50, y=92.00, z=-17.50], RemoteClientPlayerEntity['273'/20, l='ClientLevel', x=-218.50, y=92.00, z=-17.50], RemoteClientPlayerEntity['4379'/22, l='ClientLevel', x=-218.50, y=92.00, z=-22.50], RemoteClientPlayerEntity['4378'/24, l='ClientLevel', x=-238.50, y=92.00, z=-22.50], RemoteClientPlayerEntity['4380'/26, l='ClientLevel', x=-205.50, y=91.88, z=-29.50], RemoteClientPlayerEntity['4382'/30, l='ClientLevel', x=-224.50, y=92.00, z=-36.50], RemoteClientPlayerEntity['YaEgor_XD'/6222997, l='ClientLevel', x=-229.70, y=94.00, z=-1.36], RemoteClientPlayerEntity['hdVfrtZv'/6466158, l='ClientLevel', x=-231.82, y=114.50, z=-5.35], RemoteClientPlayerEntity['Merlho152'/6466256, l='ClientLevel', x=-241.84, y=94.40, z=13.99], RemoteClientPlayerEntity['5o3n5'/6465629, l='ClientLevel', x=-250.89, y=88.00, z=15.41], RemoteClientPlayerEntity['den572q'/6466636, l='ClientLevel', x=-223.02, y=91.00, z=-19.95], RemoteClientPlayerEntity['AnythinTwist'/6466102, l='ClientLevel', x=-217.02, y=93.06, z=-10.06], RemoteClientPlayerEntity['4381'/28, l='ClientLevel', x=-251.50, y=91.88, z=-29.50], RemoteClientPlayerEntity['2rmaksy6'/6465137, l='ClientLevel', x=-229.28, y=91.50, z=-25.64], RemoteClientPlayerEntity['Lobanov_Oleg'/6412338, l='ClientLevel', x=-228.76, y=92.00, z=-27.18], RemoteClientPlayerEntity['i_love_myself'/6222416, l='ClientLevel', x=-230.46, y=92.00, z=-27.67], RemoteClientPlayerEntity['big_bogdan'/6429779, l='ClientLevel', x=-219.52, y=92.42, z=-28.44]]
+	Chunk stats: Client Chunk Cache: 225, 121
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (-229,92,-30), Chunk: (at 11,5,2 in -15,-2; contains blocks -240,0,-32 to -225,255,-17), Region: (-1,-1; contains chunks -32,-32 to -1,-1, blocks -512,0,-512 to -1,255,-1)
+	Level time: 2729 game time, 1000 day time
+	Server brand: NullCordX <- Purpur
+	Server type: Non-integrated multiplayer server
+Stacktrace:
+	at net.minecraft.client.world.ClientWorld.fillCrashReport(ClientWorld.java:531)
+	at net.minecraft.client.Minecraft.addGraphicsAndWorldToCrashReport(Minecraft.java:2304)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:595)
+	at net.minecraft.client.main.Main.main(Main.java:186)
+	at Start.main(Start.java:12)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.16.5
+	Minecraft Version ID: 6029e1605671473b87945a68c40fc92f
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 17.0.15, Microsoft
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Microsoft
+	Memory: 122946352 bytes (117 MB) / 901775360 bytes (860 MB) up to 4294967296 bytes (4096 MB)
+	CPUs: 12
+	JVM Flags: 1 total; -Xmx4G
+	Launched Version: OptiFine 1.16.5
+	Backend library: LWJGL version 3.2.2 build 10
+	Backend API: NVIDIA GeForce GTX 1650/PCIe/SSE2 GL version 4.6.0 NVIDIA 576.02, NVIDIA Corporation
+	GL Caps: Using framebuffer using OpenGL 3.0
+	Using VBOs: Yes
+	Is Modded: Very likely; Jar signature invalidated
+	Type: Client (map_client.txt)
+	Graphics mode: fancy
+	Resource Packs: vanilla
+	Current Language: English (US)
+	CPU: 12x AMD Ryzen 5 4600H with Radeon Graphics 
+	OptiFine Version: OptiFine_1.16.5_HD_U_G8
+	OptiFine Build: ~~NULL~~
+	Render Distance Chunks: 9
+	Mipmaps: 4
+	Anisotropic Filtering: 1
+	Antialiasing: 0
+	Multitexture: false
+	Shaders: null
+	OpenGlVersion: 4.6.0 NVIDIA 576.02
+	OpenGlRenderer: NVIDIA GeForce GTX 1650/PCIe/SSE2
+	OpenGlVendor: NVIDIA Corporation
+	CpuCount: 12

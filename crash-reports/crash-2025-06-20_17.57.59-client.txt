@@ -1,0 +1,111 @@
+---- Minecraft Crash Report ----
+// Who set us up the TNT?
+
+Time: 20.06.2025, 17:57
+Description: Rendering entity in world
+
+java.lang.IllegalArgumentException: bound must be positive
+	at java.base/java.util.Random.nextInt(Random.java:322)
+	at net.minecraft.client.renderer.model.ModelRenderer.getRandomCube(ModelRenderer.java:310)
+	at net.minecraft.client.renderer.entity.layers.StuckInBodyLayer.render(StuckInBodyLayer.java:35)
+	at net.minecraft.client.renderer.entity.layers.StuckInBodyLayer.render(StuckInBodyLayer.java:13)
+	at net.minecraft.client.renderer.entity.LivingRenderer.render(LivingRenderer.java:334)
+	at net.minecraft.client.renderer.entity.PlayerRenderer.render(PlayerRenderer.java:79)
+	at net.minecraft.client.renderer.entity.PlayerRenderer.render(PlayerRenderer.java:41)
+	at net.minecraft.client.renderer.entity.EntityRendererManager.renderEntityStatic(EntityRendererManager.java:292)
+	at net.minecraft.client.renderer.WorldRenderer.renderEntity(WorldRenderer.java:2039)
+	at net.minecraft.client.renderer.WorldRenderer.updateCameraAndRender(WorldRenderer.java:1636)
+	at net.minecraft.client.renderer.GameRenderer.renderWorld(GameRenderer.java:969)
+	at net.minecraft.client.renderer.GameRenderer.updateCameraAndRender(GameRenderer.java:675)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:987)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:579)
+	at net.minecraft.client.main.Main.main(Main.java:186)
+	at Start.main(Start.java:12)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Stacktrace:
+	at java.base/java.util.Random.nextInt(Random.java:322)
+	at net.minecraft.client.renderer.model.ModelRenderer.getRandomCube(ModelRenderer.java:310)
+	at net.minecraft.client.renderer.entity.layers.StuckInBodyLayer.render(StuckInBodyLayer.java:35)
+	at net.minecraft.client.renderer.entity.layers.StuckInBodyLayer.render(StuckInBodyLayer.java:13)
+	at net.minecraft.client.renderer.entity.LivingRenderer.render(LivingRenderer.java:334)
+	at net.minecraft.client.renderer.entity.PlayerRenderer.render(PlayerRenderer.java:79)
+	at net.minecraft.client.renderer.entity.PlayerRenderer.render(PlayerRenderer.java:41)
+
+-- Entity being rendered --
+Details:
+	Entity Type: minecraft:player (net.minecraft.client.entity.player.RemoteClientPlayerEntity)
+	Entity ID: 1491595
+	Entity Name: slesh_venom
+	Entity's Exact location: -75.56, 60.00, -16.57
+	Entity's Block location: World: (-76,60,-17), Chunk: (at 4,3,15 in -5,-2; contains blocks -80,0,-32 to -65,255,-17), Region: (-1,-1; contains chunks -32,-32 to -1,-1, blocks -512,0,-512 to -1,255,-1)
+	Entity's Momentum: 0.00, 0.00, 0.00
+	Entity's Passengers: []
+	Entity's Vehicle: ~~ERROR~~ NullPointerException: Cannot invoke "net.minecraft.entity.Entity.toString()" because the return value of "net.minecraft.entity.Entity.getRidingEntity()" is null
+
+-- Renderer details --
+Details:
+	Assigned renderer: net.minecraft.client.renderer.entity.PlayerRenderer@7b25a30
+	Location: -59.39,-17.65,56.73 - World: (-60,-18,56), Chunk: (at 4,-2,8 in -4,3; contains blocks -64,0,48 to -49,255,63), Region: (-1,0; contains chunks -32,0 to -1,31, blocks -512,0,0 to -1,255,511)
+	Rotation: 1.40625
+	Delta: 0.3401122
+Stacktrace:
+	at net.minecraft.client.renderer.entity.EntityRendererManager.renderEntityStatic(EntityRendererManager.java:292)
+	at net.minecraft.client.renderer.WorldRenderer.renderEntity(WorldRenderer.java:2039)
+	at net.minecraft.client.renderer.WorldRenderer.updateCameraAndRender(WorldRenderer.java:1636)
+	at net.minecraft.client.renderer.GameRenderer.renderWorld(GameRenderer.java:969)
+
+-- Affected level --
+Details:
+	All players: 28 total; [ClientPlayerEntity['Astro_GO50JGLuQq'/1693694, l='ClientLevel', x=-16.17, y=76.25, z=-73.30], RemoteClientPlayerEntity['DADA_CEREXA'/1079615, l='ClientLevel', x=-73.37, y=60.00, z=-20.38], RemoteClientPlayerEntity['VanyaZolik_3'/1482003, l='ClientLevel', x=-69.16, y=60.00, z=-18.88], RemoteClientPlayerEntity['terukr'/1517267, l='ClientLevel', x=-71.37, y=60.00, z=-16.50], RemoteClientPlayerEntity['Nizeritchs'/1577284, l='ClientLevel', x=-75.56, y=60.00, z=-16.57], RemoteClientPlayerEntity['sosanator3000'/1568999, l='ClientLevel', x=-72.09, y=60.00, z=-16.27], RemoteClientPlayerEntity['frostcat'/1592695, l='ClientLevel', x=-75.54, y=60.00, z=-19.53], RemoteClientPlayerEntity['CIT-d3b8c4ea6607'/403, l='ClientLevel', x=-68.47, y=61.00, z=-9.48], RemoteClientPlayerEntity['Выбор FFA'/411, l='ClientLevel', x=-65.57, y=61.00, z=-10.51], RemoteClientPlayerEntity['Madara20'/1537589, l='ClientLevel', x=-75.20, y=60.00, z=-7.78], RemoteClientPlayerEntity['NEMORKOB'/1471128, l='ClientLevel', x=-72.93, y=59.50, z=-7.16], RemoteClientPlayerEntity['ztrixx'/1693248, l='ClientLevel', x=-78.38, y=60.00, z=-15.29], RemoteClientPlayerEntity['superhoob'/1700067, l='ClientLevel', x=-73.98, y=59.50, z=-7.22], RemoteClientPlayerEntity['CIT-38e75910d211'/563, l='ClientLevel', x=-85.60, y=61.00, z=-10.48], RemoteClientPlayerEntity['narikPROSIT'/1537341, l='ClientLevel', x=-74.23, y=55.00, z=8.31], RemoteClientPlayerEntity['suicidemonnday'/1497898, l='ClientLevel', x=-77.05, y=55.00, z=14.74], RemoteClientPlayerEntity['osgsixhskjskd'/1575668, l='ClientLevel', x=-69.05, y=55.00, z=7.69], RemoteClientPlayerEntity['VELbDOPA'/1667939, l='ClientLevel', x=-55.32, y=60.00, z=-13.65], RemoteClientPlayerEntity['zxk_kun_zxk'/1367795, l='ClientLevel', x=-84.63, y=55.00, z=13.31], RemoteClientPlayerEntity['lopyhnegr'/1692461, l='ClientLevel', x=-66.46, y=75.00, z=-24.95], RemoteClientPlayerEntity['Stranger2103'/1680921, l='ClientLevel', x=-82.47, y=59.42, z=-6.34], RemoteClientPlayerEntity['brokeyourtears'/1589738, l='ClientLevel', x=-76.41, y=60.00, z=-16.57], RemoteClientPlayerEntity['F1rtiS'/1575999, l='ClientLevel', x=-74.72, y=60.00, z=-12.33], RemoteClientPlayerEntity['gvxvyvcfvb'/1496744, l='ClientLevel', x=-75.56, y=60.00, z=-18.73], RemoteClientPlayerEntity['xvxdedlibyst'/1702714, l='ClientLevel', x=-76.15, y=60.00, z=-8.04], RemoteClientPlayerEntity['slesh_venom'/1491595, l='ClientLevel', x=-75.56, y=60.00, z=-16.57], RemoteClientPlayerEntity['ping23'/1489443, l='ClientLevel', x=-75.56, y=60.00, z=-16.57], RemoteClientPlayerEntity['Ezz_pvp_ansoft'/1490013, l='ClientLevel', x=-75.56, y=60.00, z=-16.57]]
+	Chunk stats: Client Chunk Cache: 625, 429
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (-76,60,-17), Chunk: (at 4,3,15 in -5,-2; contains blocks -80,0,-32 to -65,255,-17), Region: (-1,-1; contains chunks -32,-32 to -1,-1, blocks -512,0,-512 to -1,255,-1)
+	Level time: 114596 game time, 2727774000 day time
+	Server brand: §0§kSATURN-X§r <- §x§D§A§3§5§F§D§lSaturnX | vk.com/saturnxoff§r
+	Server type: Non-integrated multiplayer server
+Stacktrace:
+	at net.minecraft.client.world.ClientWorld.fillCrashReport(ClientWorld.java:531)
+	at net.minecraft.client.Minecraft.addGraphicsAndWorldToCrashReport(Minecraft.java:2304)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:595)
+	at net.minecraft.client.main.Main.main(Main.java:186)
+	at Start.main(Start.java:12)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.16.5
+	Minecraft Version ID: 45e8514c129d435faafd921a5a0ee69d
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 17.0.15, Microsoft
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Microsoft
+	Memory: 259128896 bytes (247 MB) / 874512384 bytes (834 MB) up to 4294967296 bytes (4096 MB)
+	CPUs: 12
+	JVM Flags: 1 total; -Xmx4G
+	Launched Version: OptiFine 1.16.5
+	Backend library: LWJGL version 3.2.2 build 10
+	Backend API: NVIDIA GeForce GTX 1650/PCIe/SSE2 GL version 4.6.0 NVIDIA 576.02, NVIDIA Corporation
+	GL Caps: Using framebuffer using OpenGL 3.0
+	Using VBOs: Yes
+	Is Modded: Very likely; Jar signature invalidated
+	Type: Client (map_client.txt)
+	Graphics mode: fancy
+	Resource Packs: vanilla
+	Current Language: English (US)
+	CPU: 12x AMD Ryzen 5 4600H with Radeon Graphics 
+	OptiFine Version: OptiFine_1.16.5_HD_U_G8
+	OptiFine Build: ~~NULL~~
+	Render Distance Chunks: 9
+	Mipmaps: 4
+	Anisotropic Filtering: 1
+	Antialiasing: 0
+	Multitexture: false
+	Shaders: null
+	OpenGlVersion: 4.6.0 NVIDIA 576.02
+	OpenGlRenderer: NVIDIA GeForce GTX 1650/PCIe/SSE2
+	OpenGlVendor: NVIDIA Corporation
+	CpuCount: 12
